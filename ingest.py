@@ -1,7 +1,7 @@
 import os
 from langchain_community.document_loaders import TextLoader, PyPDFLoader, DirectoryLoader
-from langchain.text_splitter import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharacterTextSplitter
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from dotenv import load_dotenv
 
@@ -31,6 +31,8 @@ def ingest_documents():
             chunks = md_splitter.split_text(doc.page_content)
             source_name = os.path.basename(doc.metadata['source'])
             for chunk in chunks:
+                # Prepend source to content to help LLM attribution
+                chunk.page_content = f"[Source: {source_name}]\n{chunk.page_content}"
                 chunk.metadata['source'] = source_name
                 all_chunks.append(chunk)
         print(f"Processed {len(md_documents)} Markdown files.")
@@ -41,12 +43,14 @@ def ingest_documents():
     pdf_documents = pdf_loader.load()
     
     if pdf_documents:
-        pdf_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+        pdf_splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=150)
         pdf_chunks = pdf_splitter.split_documents(pdf_documents)
         
         for chunk in pdf_chunks:
-            # Ensure source is just the filename
-            chunk.metadata['source'] = os.path.basename(chunk.metadata['source'])
+            source_name = os.path.basename(chunk.metadata['source'])
+            # Prepend source to content
+            chunk.page_content = f"[Source: {source_name}]\n{chunk.page_content}"
+            chunk.metadata['source'] = source_name
             all_chunks.append(chunk)
         print(f"Processed {len(pdf_documents)} PDF pages.")
 
