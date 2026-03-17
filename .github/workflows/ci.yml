@@ -25,4 +25,4 @@ jobs:
         python -c "import app"
     - name: Run Smoke Tests
       run: |
-        pytest -q tests/test_app.py
+        python -m pytest -q tests/test_app.py
