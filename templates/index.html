@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandbox Policy Assistant</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; display: flex; flex-direction: column; height: 100vh; }
+        header { background-color: #2c3e50; color: white; padding: 1rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        #chat-container { flex: 1; overflow-y: auto; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+        .message { max-width: 80%; padding: 1rem; border-radius: 10px; line-height: 1.5; }
+        .user-message { align-self: flex-end; background-color: #3498db; color: white; border-bottom-right-radius: 2px; }
+        .assistant-message { align-self: flex-start; background-color: white; color: #333; border-bottom-left-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .citations { margin-top: 0.5rem; font-size: 0.85rem; color: #7f8c8d; border-top: 1px solid #eee; padding-top: 0.5rem; }
+        .latency { font-size: 0.75rem; color: #bdc3c7; text-align: right; margin-top: 0.25rem; }
+        #input-area { background-color: white; padding: 1.5rem; display: flex; gap: 1rem; border-top: 1px solid #ddd; }
+        #query-input { flex: 1; padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; outline: none; font-size: 1rem; }
+        #send-btn { background-color: #2c3e50; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+        #send-btn:hover { background-color: #34495e; }
+        #send-btn:disabled { background-color: #bdc3c7; }
+        .loading { font-style: italic; color: #95a5a6; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sandbox Policy Assistant</h1>
+    </header>
+
+    <div id="chat-container">
+        <div class="message assistant-message">
+            Hello! I am your Sandbox company policy assistant. How can I help you today?
+        </div>
+    </div>
+
+    <div id="input-area">
+        <input type="text" id="query-input" placeholder="Ask a policy question..." autocomplete="off">
+        <button id="send-btn">Send</button>
+    </div>
+
+    <script>
+        const chatContainer = document.getElementById('chat-container');
+        const queryInput = document.getElementById('query-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        function addMessage(text, isUser, citations = [], latency = null) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'assistant-message'}`;
+            
+            let content = text;
+            if (citations.length > 0) {
+                content += `<div class="citations"><strong>Sources:</strong> ${citations.join(', ')}</div>`;
+            }
+            if (latency) {
+                content += `<div class="latency">Processed in ${latency}ms</div>`;
+            }
+            
+            messageDiv.innerHTML = content;
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        async function handleSend() {
+            const query = queryInput.value.trim();
+            if (!query) return;
+
+            addMessage(query, true);
+            queryInput.value = '';
+            queryInput.disabled = true;
+            sendBtn.disabled = true;
+
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'message assistant-message loading';
+            loadingDiv.innerText = 'Searching documents...';
+            chatContainer.appendChild(loadingDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query })
+                });
+
+                const data = await response.json();
+                chatContainer.removeChild(loadingDiv);
+
+                if (data.error) {
+                    addMessage(`Error: ${data.error}`, false);
+                } else {
+                    addMessage(data.answer, false, data.citations, data.latency_ms);
+                }
+            } catch (error) {
+                chatContainer.removeChild(loadingDiv);
+                addMessage(`Error: Failed to connect to server.`, false);
+            } finally {
+                queryInput.disabled = false;
+                sendBtn.disabled = false;
+                queryInput.focus();
+            }
+        }
+
+        sendBtn.addEventListener('click', handleSend);
+        queryInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSend();
+        });
+    </script>
+</body>
+</html>
