@@ -9,47 +9,50 @@ load_dotenv()
 
 # Configuration
 CORPUS_DIR = "corpus"
-PDF_FILE = "b516ccaf2905b8f2e096654299cd902a.pdf"
 DB_DIR = "db"
 
 def ingest_documents():
-    # 1. Load Markdown files
-    print("Loading Markdown files...")
+    all_chunks = []
+    
+    # 1. Load and process Markdown files from corpus/
+    print(f"Searching for Markdown files in {CORPUS_DIR}...")
     md_loader = DirectoryLoader(CORPUS_DIR, glob="**/*.md", loader_cls=TextLoader)
     md_documents = md_loader.load()
     
-    # 2. Split Markdown by headers
-    headers_to_split_on = [
-        ("#", "Header 1"),
-        ("##", "Header 2"),
-        ("###", "Header 3"),
-    ]
-    md_splitter = MarkdownHeaderTextSplitter(headers_to_split_on=headers_to_split_on)
-    
-    all_chunks = []
-    for doc in md_documents:
-        chunks = md_splitter.split_text(doc.page_content)
-        # Add source metadata
-        source_name = os.path.basename(doc.metadata['source'])
-        for chunk in chunks:
-            chunk.metadata['source'] = source_name
-            all_chunks.append(chunk)
-
-    # 3. Load PDF file
-    if os.path.exists(PDF_FILE):
-        print(f"Loading PDF file: {PDF_FILE}...")
-        pdf_loader = PyPDFLoader(PDF_FILE)
-        pdf_documents = pdf_loader.load()
+    if md_documents:
+        headers_to_split_on = [
+            ("#", "Header 1"),
+            ("##", "Header 2"),
+            ("###", "Header 3"),
+        ]
+        md_splitter = MarkdownHeaderTextSplitter(headers_to_split_on=headers_to_split_on)
         
+        for doc in md_documents:
+            chunks = md_splitter.split_text(doc.page_content)
+            source_name = os.path.basename(doc.metadata['source'])
+            for chunk in chunks:
+                chunk.metadata['source'] = source_name
+                all_chunks.append(chunk)
+        print(f"Processed {len(md_documents)} Markdown files.")
+
+    # 2. Load and process PDF files from corpus/
+    print(f"Searching for PDF files in {CORPUS_DIR}...")
+    pdf_loader = DirectoryLoader(CORPUS_DIR, glob="**/*.pdf", loader_cls=PyPDFLoader)
+    pdf_documents = pdf_loader.load()
+    
+    if pdf_documents:
         pdf_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
         pdf_chunks = pdf_splitter.split_documents(pdf_documents)
         
-        # Add source metadata for PDF chunks
         for chunk in pdf_chunks:
-            chunk.metadata['source'] = PDF_FILE
+            # Ensure source is just the filename
+            chunk.metadata['source'] = os.path.basename(chunk.metadata['source'])
             all_chunks.append(chunk)
-    else:
-        print(f"Warning: PDF file {PDF_FILE} not found.")
+        print(f"Processed {len(pdf_documents)} PDF pages.")
+
+    if not all_chunks:
+        print("No documents found in the corpus directory.")
+        return
 
     # 4. Create Embeddings
     print("Creating embeddings (this may take a moment)...")
