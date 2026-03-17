@@ -4,7 +4,15 @@ from langchain_groq import ChatGroq
 from langchain_openai import ChatOpenAI
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
-from langchain_classic.chains import RetrievalQA
+try:
+    from langchain.chains import RetrievalQA
+except ImportError:
+    try:
+        from langchain_classic.chains import RetrievalQA
+    except ImportError:
+        # Fallback for newer create_retrieval_chain in v0.3 if needed
+        # But let's stick to the ones we found in your site-packages
+        raise ImportError("Could not find RetrievalQA in langchain.chains or langchain_classic.chains. Please check your langchain version.")
 from langchain_core.prompts import PromptTemplate
 from dotenv import load_dotenv
 
