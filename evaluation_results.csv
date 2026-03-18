@@ -1,72 +1,29 @@
-query,answer,citations,latency,is_grounded,has_citation
-What is the definition of Done in Sandbox Agile?,"I'm unable to provide the definition of ""Done"" in Sandbox Agile as it is not mentioned in the provided context. I can only provide information from company policy documents, and the given context does not include this specific information.
-
-Please note that the provided context only mentions that Sandbox embraces Agile principles and outlines the implementation of the Scrum framework (as stated in the guide), but it does not define what ""Done"" means in this context.
-
-(Source: No specific document ID is available for this answer, as the information is not present in the provided context.)","['disciplinary_procedure.md', 'performance_management_and_kpis.md', 'agile_methodology_guide.md', 'grievance_policy.md']",871.82,False,True
-What is the dress code policy?,"The dress code policy at Sandbox is ""smart casual"" (Company Policy Document), which serves as a guideline rather than a strict set of rules. This means that employees are trusted to use their best judgment when it comes to their attire. However, management reserves the right to ask an employee to change if their attire is deemed inappropriate for the workplace (Company Policy Document). 
-
-For specific situations such as meeting with clients or representing Sandbox at an external event, the expected dress code is business professional attire (Company Policy Document). 
-
-Some examples of inappropriate attire include clothing with offensive graphics or language, beachwear, sportswear (unless participating in a company wellness activity), and clothing that is torn, dirty, or revealing (Company Policy Document).
-
-Source: Company Policy Document (no specific ID provided in the context).",['dress_code_policy.md'],831.21,True,True
-How do I report a grievance?,"To report a grievance, you should first try to resolve the issue informally. If that's not successful, you should put your grievance in writing and submit it to your manager or HR, as stated in **Step 1: Written Grievance**. The written grievance should clearly state the nature of the complaint and the desired outcome.
-
-If you're not sure about the process or need support, you can also refer to the general guidance on reporting violations, which suggests reporting to your direct manager, Human Resources, or anonymously through the internal reporting tool.
-
-Please note that all grievances will be handled with sensitivity and confidentiality, and retaliation against anyone who reports a grievance in good faith is strictly prohibited (as per the company's policy on grievances and the Code of Conduct).
-
-Citations: 
-- **Step 1: Written Grievance** (for the procedure on submitting a written grievance)
-- Code of Conduct (for general guidance on reporting violations and confidentiality)","['code_of_conduct.md', 'grievance_policy.md']",1620.04,True,True
-Who is the CEO of Sandbox?,"The CEO of Sandbox is Stacy Fakename, as mentioned in the welcome message (unsigned document) and also listed in the table with her title and email address. 
-
-According to the unsigned document, ""I'm Stacy Fakename, and I am thrilled to welcome you to our company."" and also signed as ""Best regards, Stacy Fakename, CEO, Sandbox"". Additionally, the table confirms this information, listing ""Stacy Fakename"" as the ""Chief Executive Officer"" with her email address.
-
-(Source: unsigned welcome document, table with employee information)","['leave_policy.md', 'ceo_welcome_message.md', 'code_of_conduct.md', 'employee_directory.md']",772.05,True,True
-What is the policy on remote work?,"The policy on remote work at Sandbox is designed to provide flexibility and support a healthy work-life balance. According to the policy, remote employees are expected to be available and online during their agreed-upon work hours, with core collaboration hours established by each team. They are also expected to maintain regular communication with their team and manager through company communication channels, such as Slack and email, during work hours. Additionally, remote employees must maintain a safe, ergonomic, and distraction-free work environment, and protect company-provided equipment from damage and unauthorized use. A stable, high-speed internet connection is also required, with employees being responsible for their own internet service and costs, although a stipend may be provided to offset these costs.
-
-(Source: Remote Work Policy)",['remote_work_policy.md'],765.02,True,True
-Can I use my own laptop for work?,"According to the company policies, Sandbox will provide the necessary equipment for you to perform your job, including a laptop and other peripherals, as stated in the **Equipment** section. This implies that the company expects you to use the provided laptop for work purposes. 
-
-Additionally, the **Software** section mentions that only approved and licensed software by Sandbox may be installed on company laptops, which further suggests that using a company-provided laptop is the preferred option.
-
-Therefore, it is recommended to use the company-provided laptop for work. (Source: **Equipment**, **Software** sections)","['health_and_safety_policy.md', 'information_security_policy.md', 'it_asset_policy.md', 'remote_work_policy.md']",743.18,True,True
-What are the Scrum ceremonies?,"The Scrum ceremonies, also known as events, are used to create regularity and minimize the need for meetings not defined in Scrum. These events include:
-
-1. **The Sprint**: A time-box of two weeks during which a ""Done,"" usable, and potentially releasable product increment is created.
-2. **Sprint Planning**: The team collaborates to plan the work to be performed in the Sprint, resulting in a Sprint Backlog.
-3. **Daily Scrum (Stand-up)**: A 15-minute daily meeting for the Development Team to synchronize activities and create a plan for the next 24 hours.
-4. **Sprint Review**: Held at the end of the Sprint to inspect the Increment and adapt the Product Backlog if needed.
-5. **Sprint Retrospective**: An opportunity for the Scrum Team to inspect itself and create a plan for improvements to be enacted during the next Sprint.
-
-(No specific document name/ID is provided in the context, but the information is based on the given context.)","['sales_pitch_guidelines.md', 'agile_methodology_guide.md']",780.16,True,True
-How do I refer a candidate for a job?,"To refer a candidate for a job, you should submit their resume and a brief description of why you are recommending them through our internal referral portal (as outlined in step 2: **Submit a Referral**). Additionally, the candidate must apply for the position and indicate that they were referred by you (step 3: **Candidate Application**). 
-
-For more information on the referral process, please review the provided context. 
-(Source: steps 2 and 3 of the provided context)","['employee_referral_program.md', 'employee_directory.md']",766.38,True,True
-What is the leave policy for study?,"The leave policy for study allows eligible employees to be granted up to 10 days of paid study leave per academic year, which can be used for attending classes, writing exams, or other critical course-related activities. This leave is granted at the discretion of management and is subject to business requirements. 
-
-As outlined in the study leave policy, employees on study leave are expected to maintain satisfactory academic progress, provide proof of registration and exam results to HR, and share the knowledge and skills gained with their teams. 
-
-The policy applies to all permanent, full-time employees who have completed their probation period, and the course of study must be relevant to the employee's current role or future career path within the company.
-
-(Source: Study Leave Policy document, as mentioned in the context that for any questions about the study leave policy, please contact Human Resources)",['study_leave_policy.md'],1120.77,True,True
-How do I claim expenses?,"To claim expenses, you must submit your expense reports through the company's expense management system, as stated in the company policy. Additionally, you will need to provide original, itemized receipts for all expenses. It's also important to note that expense reports should be submitted within 30 days of incurring the expense.
-
-If you have any questions about the policy or whether an expense is reimbursable, you can contact your manager or the finance department before making the purchase. 
-
-(Source: **Submission**, **Receipts**, **Timeliness**)",['expense_policy.md'],628.5,True,True
-What should I do if I see a safety hazard?,"If you see a safety hazard, you should report it to your manager or the Health and Safety Representative. This is part of your responsibility as an employee, as stated in our company policy, to report any unsafe conditions or practices. 
-
-Additionally, all incidents, including near misses, should be reported to a manager immediately, and an investigation will be conducted to determine the cause and implement corrective actions (as mentioned in our policy). 
-
-It's also worth noting that the company will regularly conduct hazard identification and risk assessments to identify potential dangers in the workplace and implement control measures to eliminate or minimize these risks.
-
-(Source: Company Health and Safety Policy)","['dress_code_policy.md', 'health_and_safety_policy.md']",700.79,True,True
-What is the company policy on space travel?,"I'm happy to help, but I must inform you that the provided context does not mention space travel. The context only discusses general business travel procedures, such as approval, booking, and health precautions for international business trips (as outlined in the company's travel policy, which should be read in conjunction with the Sandbox Expense Policy).
-
-Since the company's policy documents provided do not address space travel, I can only provide information from the given context. Unfortunately, I must refuse to answer your question about space travel as it is not covered in the provided policy documents.
-
-(Sources: Company Travel Policy, Sandbox Expense Policy)",['travel_policy.md'],891.41,False,True
+topic,query,answer,gold_answer,latency,groundedness,citation_accuracy,partial_match
+Agile,What is the definition of Done in Sandbox Agile?,"At Sandbox, the definition of ""Done"" is not explicitly stated, but it is mentioned that at the end of a Sprint, the new Increment must be ""Done"" [agile_methodology_guide.md]. However, the exact criteria for ""Done"" are not provided in the given context.","Code is peer-reviewed, unit tests are written and passing, the feature is tested by QA, and the Product Owner has accepted the story.",993.16,False,True,False
+Leave,How many days of annual leave are full-time employees entitled to per year in South Africa?,Full-time employees are entitled to 21 consecutive days of paid annual leave per year [leave_policy.md].,21 consecutive days of paid annual leave per year (1.75 days per month).,338.56,False,True,True
+Leave,What is the maximum number of annual leave days an employee can accumulate?,The maximum number of annual leave days an employee can accumulate is 30 days [leave_policy.md].,A maximum of 30 days of annual leave.,594.38,False,True,True
+Leave,When is a medical certificate required for sick leave?,"A medical certificate is required if you are absent from work for more than two consecutive days, or on more than two occasions during an eight-week period [leave_policy.md].","If absent for more than two consecutive days, or on more than two occasions during an eight-week period.",675.24,False,True,True
+Dress Code,What is the company's dress code policy for regular office days?,"The company's dress code policy for regular office days is ""smart casual"" [dress_code_policy.md]. This policy trusts employees to use their best judgment when it comes to their attire [dress_code_policy.md]. However, certain items are not considered appropriate, including clothing with offensive graphics, beachwear, sportswear, and clothing that is torn, dirty, or revealing [dress_code_policy.md].","The dress code is 'smart casual', which means professional yet relaxed, neat and put-together.",707.74,False,True,True
+Dress Code,What should an employee wear when meeting with clients?,"When meeting with clients, an employee is expected to dress in business professional attire [dress_code_policy.md]. This includes a suit or blazer, dress shirt, trousers, and dress shoes for men, with a tie recommended [dress_code_policy.md], and a suit, dress, or a skirt/trousers with a blouse and blazer for women [dress_code_policy.md].","Business professional attire (e.g., suit, blazer, dress shirt, dress shoes).",543.65,False,True,True
+Dress Code,Are flip-flops allowed in the office?,"No, flip-flops are not allowed in the office, as they are considered beachwear [dress_code_policy.md]. Additionally, in certain areas like a server room or workshop, closed-toe shoes may be required for safety [dress_code_policy.md].","No, beachwear like flip-flops is specifically listed as unacceptable attire.",520.62,True,True,True
+Leave,How many days of family responsibility leave are employees entitled to?,Employees are entitled to 3 days of paid family responsibility leave per year [leave_policy.md].,"3 days of paid family responsibility leave per year, for employees who have worked more than four months.",395.29,True,True,True
+Remote Work,Does Sandbox provide equipment for remote work?,"Yes, Sandbox provides the necessary equipment for remote work, including a laptop and other peripherals, as stated in the company's remote work policy [remote_work_policy.md].","Yes, Sandbox provides necessary equipment including a laptop and other peripherals.",419.21,False,True,True
+Remote Work,Who is responsible for the cost of internet service for remote employees?,"According to the company policy, remote employees are responsible for their own internet service and costs [remote_work_policy.md]. However, a stipend may be provided to offset these costs, as outlined in the Expense Policy [remote_work_policy.md].","Employees are responsible for their own internet service and costs, though a stipend may be provided as outlined in the Expense Policy.",475.58,False,True,True
+Expenses,Within how many days should an expense report be submitted?,Expense reports should be submitted within 30 days of incurring the expense [expense_policy.md].,Expense reports should be submitted within 30 days of incurring the expense.,395.52,False,True,True
+Expenses,Is childcare a reimbursable expense?,"No, childcare is not a reimbursable expense [expense_policy.md]. It is listed as a non-reimbursable expense [expense_policy.md].","No, childcare is specifically listed as a non-reimbursable expense.",424.13,True,True,True
+Agile,What are the core Scrum events mentioned in the Agile guide?,"The core Scrum events mentioned in the Agile guide are: 
+- The Sprint [agile_methodology_guide.md]
+- Sprint Planning [agile_methodology_guide.md]
+- Daily Scrum (Stand-up) [agile_methodology_guide.md]
+- Sprint Review [agile_methodology_guide.md]
+- Sprint Retrospective [agile_methodology_guide.md]","The Sprint, Sprint Planning, Daily Scrum (Stand-up), Sprint Review, and Sprint Retrospective.",499.82,False,True,True
+General,Who is the CEO of Sandbox?,"The CEO of Sandbox is Stacy Fakename [ceo_welcome_message.md], [code_of_conduct.md], [leave_policy.md].",Stacy Fakename.,438.33,True,True,True
+Expenses,What is the 'Home Office Stipend' mentioned in the Expense Policy?,"The 'Home Office Stipend' is a monthly stipend that may be provided to remote employees to cover a portion of home office expenses, such as internet and electricity [expense_policy.md].",A monthly stipend provided to remote employees to cover a portion of home office expenses like internet and electricity.,468.58,False,True,True
+Agile,What are the three questions for the Daily Scrum?,"The three questions to consider during the Daily Scrum are: 
+1. What did I do yesterday?
+2. What will I do today?
+3. Are there any impediments in my way? [agile_methodology_guide.md]",1. What did I do yesterday? 2. What will I do today? 3. Are there any impediments in my way?,3746.81,False,True,True
+Agile,What is the 'Scrum Master' responsible for?,The Scrum Master is responsible for removing impediments to the team's progress and helping everyone understand Scrum theory and practice [agile_methodology_guide.md]. They act as a servant-leader for the team [agile_methodology_guide.md].,The Scrum Master is a servant-leader responsible for helping everyone understand Scrum and removing impediments to the team's progress.,2748.07,False,True,True
+Expenses,Can an employee be reimbursed for traffic violations?,"No, an employee cannot be reimbursed for traffic violations [expense_policy.md]. According to the expense policy, traffic violations or parking tickets are listed as examples of non-reimbursable expenses [expense_policy.md].","No, traffic violations or parking tickets are non-reimbursable.",2642.87,True,True,True
+Leave,What is the leave year period at Sandbox?,The leave year at Sandbox runs from January 1st to December 31st [leave_policy.md].,The leave year runs from January 1st to December 31st.,2601.59,True,True,True
+Out-of-Scope,What is the policy on company space travel and Mars colonies?,"I am sorry, but the company documents do not contain information on this topic.",Refusal: The documents do not mention space travel or Mars colonies.,2578.67,True,False,True

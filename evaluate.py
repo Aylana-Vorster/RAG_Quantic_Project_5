@@ -212,8 +212,8 @@ def run_evaluation():
     print("="*40)
     print(json.dumps(metrics, indent=2))
     
-    df.to_csv("detailed_evaluation_results.csv", index=False)
-    print("\nDetailed results saved to detailed_evaluation_results.csv")
+    df.to_csv("evaluation_results.csv", index=False)
+    print("\nDetailed results saved to evaluation_results.csv")
 
 if __name__ == "__main__":
     run_evaluation()
