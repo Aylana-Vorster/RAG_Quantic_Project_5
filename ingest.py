@@ -65,8 +65,11 @@ def ingest_documents():
     # 5. Store in Chroma
     print(f"Storing {len(all_chunks)} chunks in {DB_DIR}...")
     if os.path.exists(DB_DIR):
-        import shutil
-        shutil.rmtree(DB_DIR)
+        import shutil, stat
+        def handle_readonly(func, path, exc):
+            os.chmod(path, stat.S_IWRITE)
+            func(path)
+        shutil.rmtree(DB_DIR, onexc=handle_readonly)
         
     vectorstore = Chroma.from_documents(
         documents=all_chunks,

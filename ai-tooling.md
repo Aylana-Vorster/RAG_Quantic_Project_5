@@ -18,6 +18,18 @@ The following tools were used and for what purposes:
 
 3. Anthropic. "Claude Code." https://claude.ai/code. Accessed: 2026-03-24.
 
+4. Render. "Render: Cloud Application Hosting." https://render.com. Accessed: 2026-03-24.
+
+5. Groq. "Groq API Documentation." https://console.groq.com/docs. Accessed: 2026-03-24.
+
+6. OpenRouter. "OpenRouter API." https://openrouter.ai. Accessed: 2026-03-24.
+
+7. Chase, H. (2022). "LangChain." GitHub. https://github.com/langchain-ai/langchain.
+
+8. Chroma. "ChromaDB: The open-source embedding database." https://www.trychroma.com. Accessed: 2026-03-24.
+
+9. Reimers, N., & Gurevych, I. (2019). "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks." *Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing*. https://arxiv.org/abs/1908.10084.
+
 ```bibtex
 @MISC{gemini-cli-extensions2025conductor,
   author = {gemini-cli-extensions and Aitbayev, Sherzat and Gana Obreg{\'o}n, Mois{\'e}s},
@@ -40,5 +52,49 @@ The following tools were used and for what purposes:
   title = {Claude Code},
   howpublished = {\url{https://claude.ai/code}},
   note = {Accessed: 2026-03-24}
+}
+
+@MISC{render,
+  author = {Render},
+  title = {Render: Cloud Application Hosting},
+  howpublished = {\url{https://render.com}},
+  note = {Accessed: 2026-03-24}
+}
+
+@MISC{groq,
+  author = {Groq},
+  title = {Groq {API} Documentation},
+  howpublished = {\url{https://console.groq.com/docs}},
+  note = {Accessed: 2026-03-24}
+}
+
+@MISC{openrouter,
+  author = {OpenRouter},
+  title = {OpenRouter {API}},
+  howpublished = {\url{https://openrouter.ai}},
+  note = {Accessed: 2026-03-24}
+}
+
+@MISC{langchain,
+  author = {Chase, Harrison},
+  title = {LangChain},
+  year = {2022},
+  publisher = {GitHub},
+  howpublished = {\url{https://github.com/langchain-ai/langchain}}
+}
+
+@MISC{chromadb,
+  author = {Chroma},
+  title = {ChromaDB: The open-source embedding database},
+  howpublished = {\url{https://www.trychroma.com}},
+  note = {Accessed: 2026-03-24}
+}
+
+@INPROCEEDINGS{reimers2019sentencebert,
+  author = {Reimers, Nils and Gurevych, Iryna},
+  title = {Sentence-{BERT}: Sentence Embeddings using Siamese {BERT}-Networks},
+  booktitle = {Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing},
+  year = {2019},
+  url = {https://arxiv.org/abs/1908.10084}
 }
 ```

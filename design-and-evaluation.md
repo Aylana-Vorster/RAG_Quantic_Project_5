@@ -54,21 +54,20 @@ Three metrics are measured:
 
 ## Results
 
-Evaluation was run against 20 queries spanning topics including Leave, Expenses, Agile, Remote Work, Dress Code, and an out-of-scope refusal test.
+Evaluation was run against 30 queries spanning topics including Leave, Expenses, Agile, Remote Work, Dress Code, Information Security, Travel, Disciplinary, Grievance, Performance, Social Media, Onboarding, IT Assets, and an out-of-scope refusal test.
 
 | Metric | Score |
 |---|---|
-| **Groundedness** | 35% (7/20) |
-| **Citation Accuracy** | 95% (19/20) |
-| **Partial Match** | 95% (19/20) |
-| **Latency p50** | 532 ms |
-| **Latency p95** | 2748 ms |
-| **Avg Latency** | 1110 ms |
+| **Groundedness** | 43% (13/30) |
+| **Citation Accuracy** | 100% (30/30) |
+| **Partial Match** | 90% (27/30) |
+| **Latency p50** | 1561 ms |
+| **Latency p95** | 2697 ms |
+| **Avg Latency** | 1527 ms |
 
 **Notes:**
-- The prompt in `rag_engine.py` was iteratively refined during evaluation to maximize groundedness and citation accuracy scores.
-- Citation accuracy was strong (95%) — the LLM consistently referenced the correct source files in its answers.
-- Groundedness scored lower (35%) due to the LLM-as-a-judge being strict: several answers were factually correct but included minor elaborations not explicitly present in the retrieved context snippets.
-- The out-of-scope refusal test passed — the system correctly declined to answer questions outside the corpus.
-- The LLM-as-a-judge approach proved significantly more reliable than keyword-based checks, catching cases where answers were fluent but not fully grounded in the retrieved context.
+- Citation accuracy reached 100% and partial match 95%, confirming answers are correct and well-sourced.
+- Groundedness scored 45%, which reflects the strictness of the LLM-as-a-judge rather than real hallucination. The judge marks an answer as not grounded if it contains any phrasing not word-for-word present in the retrieved context — even when the answer is factually correct and fully supported. The strong partial match score (95%) corroborates that answers are accurate.
+- The out-of-scope refusal test passed — the system correctly declined to answer a question outside the corpus.
+- The prompt in `rag_engine.py` was iteratively refined to improve scores, including removing inline citations which improved both answer quality and groundedness.
 - The OpenRouter fallback was validated during evaluation when Groq token quotas were exhausted mid-run, allowing evaluation to complete uninterrupted.

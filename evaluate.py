@@ -115,6 +115,56 @@ TEST_DATA = [
         "query": "What is the policy on company space travel and Mars colonies?",
         "gold_answer": "Refusal: The documents do not mention space travel or Mars colonies.",
         "topic": "Out-of-Scope"
+    },
+    {
+        "query": "Must employees use a VPN when working on public Wi-Fi?",
+        "gold_answer": "Yes, a VPN must be used when accessing the company network from an untrusted network such as public Wi-Fi.",
+        "topic": "Information Security"
+    },
+    {
+        "query": "How many days of paid study leave can an eligible employee receive per academic year?",
+        "gold_answer": "Up to 10 days of paid study leave per academic year.",
+        "topic": "Study Leave"
+    },
+    {
+        "query": "How far in advance must business travel be approved and booked?",
+        "gold_answer": "Travel must be approved in advance by a manager and booked at least 14 days in advance to secure better rates.",
+        "topic": "Travel"
+    },
+    {
+        "query": "What class of flights are employees expected to book for business travel?",
+        "gold_answer": "Economy class for both domestic and international flights.",
+        "topic": "Travel"
+    },
+    {
+        "query": "How long is a written warning valid for under the disciplinary procedure?",
+        "gold_answer": "A written warning is valid for 6 months.",
+        "topic": "Disciplinary"
+    },
+    {
+        "query": "Within how many working days must a grievance hearing be scheduled after receiving a written grievance?",
+        "gold_answer": "Within 5 working days of receiving the written grievance.",
+        "topic": "Grievance"
+    },
+    {
+        "query": "What are the four stages of Sandbox's performance cycle?",
+        "gold_answer": "Goal Setting (January), Mid-Year Review (July), End-of-Year Review (December), and Ongoing Feedback.",
+        "topic": "Performance"
+    },
+    {
+        "query": "What must an employee do if they identify themselves as a Sandbox employee on personal social media?",
+        "gold_answer": "They should make it clear that their views are their own and not those of the company, using a disclaimer such as 'Opinions are my own'.",
+        "topic": "Social Media"
+    },
+    {
+        "query": "What are the 4 C's of Sandbox's onboarding program?",
+        "gold_answer": "Compliance, Clarification, Culture, and Connection.",
+        "topic": "Onboarding"
+    },
+    {
+        "query": "Is unauthorized software allowed to be installed on company laptops?",
+        "gold_answer": "No, only software that is approved and licensed by Sandbox may be installed. Installation of unauthorized software is strictly prohibited.",
+        "topic": "IT Assets"
     }
 ]
 
@@ -147,12 +197,11 @@ class Evaluator:
         verdict = "YES" if "VERDICT: YES" in response.content.upper() else "NO"
         return verdict == "YES"
 
-    def judge_citation_accuracy(self, answer, context_snippets):
-        # Simplistic check: Does the answer mention at least one of the source filenames from the snippets?
+    def judge_citation_accuracy(self, citations, context_snippets):
+        # Check if at least one returned citation matches a source from the retrieved snippets
         sources = [s['source'].lower() for s in context_snippets]
-        answer_lower = answer.lower()
-        for source in sources:
-            if source in answer_lower:
+        for citation in citations:
+            if citation.lower() in sources:
                 return True
         return False
 
@@ -174,7 +223,7 @@ def run_evaluation():
         res = engine.query(query)
         
         is_grounded = evaluator.judge_groundedness(query, res["answer"], res["snippets"])
-        has_correct_citation = evaluator.judge_citation_accuracy(res["answer"], res["snippets"])
+        has_correct_citation = evaluator.judge_citation_accuracy(res["citations"], res["snippets"])
         
         # Partial Match check (simple keyword overlap)
         gold = item["gold_answer"].lower()

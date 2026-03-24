@@ -72,17 +72,16 @@ Your goal is to provide accurate answers based ONLY on the provided context.
 
 INSTRUCTIONS:
 1. Answer the question using the provided context snippets.
-2. For EVERY fact or sentence, you MUST include the source filename in square brackets, e.g., [leave_policy.md].
-3. If the answer is not in the context, say "I am sorry, but the company documents do not contain information on this topic."
-4. Do NOT use any external knowledge.
-5. Be concise and professional.
+2. If the answer is not in the context, say "I am sorry, but the company documents do not contain information on this topic."
+3. Do NOT use any external knowledge.
+4. Be concise and professional.
 
 Context:
 {context}
 
 Question: {question}
 
-Helpful Answer with [Filenames]:"""
+Helpful Answer:"""
         
         self.prompt = PromptTemplate(
             template=prompt_template,

@@ -2,7 +2,7 @@ services:
   - type: web
     name: project-5-rag
     runtime: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install torch --index-url https://download.pytorch.org/whl/cpu && pip install -r requirements.txt && python -c "from langchain_huggingface import HuggingFaceEmbeddings; HuggingFaceEmbeddings(model_name='all-MiniLM-L6-v2')"
     startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
     envVars:
       - key: GROQ_API_KEY
