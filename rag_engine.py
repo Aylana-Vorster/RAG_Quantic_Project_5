@@ -45,7 +45,8 @@ class RAGEngine:
             self.primary_llm = ChatGroq(
                 api_key=GROQ_API_KEY,
                 model_name=GROQ_MODEL,
-                temperature=0
+                temperature=0,
+                max_tokens=512
             )
             
         # Initialize Fallback (OpenRouter)
@@ -55,7 +56,8 @@ class RAGEngine:
                 api_key=OPENROUTER_API_KEY,
                 base_url="https://openrouter.ai/api/v1",
                 model=OR_MODEL,
-                temperature=0
+                temperature=0,
+                max_tokens=512
             )
 
         if not self.primary_llm and not self.fallback_llm:
@@ -71,7 +73,7 @@ Your goal is to provide accurate answers based ONLY on the provided context.
 INSTRUCTIONS:
 1. Answer the question using the provided context snippets.
 2. For EVERY fact or sentence, you MUST include the source filename in square brackets, e.g., [leave_policy.md].
-3. If the answer is not in the context, say "I am sorry, but the company documents do not contain information on this topic." 
+3. If the answer is not in the context, say "I am sorry, but the company documents do not contain information on this topic."
 4. Do NOT use any external knowledge.
 5. Be concise and professional.
 
