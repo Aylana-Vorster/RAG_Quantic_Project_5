@@ -1,3 +1,5 @@
+THIS IS DEVELOPED AS A PROJECT FOR THE MSSE COURSE AT THE QUANTIC SCHOOL FOR BUSINESS AND TECHNOLOGY.
+
 # Sandbox Policy Assistant (RAG)
 
 A Retrieval-Augmented Generation (RAG) application to answer questions based on Sandbox company policy documents.
